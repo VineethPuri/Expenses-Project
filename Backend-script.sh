@@ -9,7 +9,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 echo "Please Enter DB password:"
-read -s mysql_root_password
+read mysql_root_password
 
 VALIDATE(){
     if [ $1 -ne 0 ]
@@ -41,11 +41,11 @@ VALIDATE $? "Installing Nodejs"
 id expense &>>LOGFILE
 if [ $? -ne 0 ]
 then
-useradd expense
-VALIDATE $? "Adding user"
+    useradd expense
+    VALIDATE $? "Adding user"
 else
+    echo -e "Expense user already created...$Y Skipping $N"
 fi
-echo -e "Expense user already created...$Y Skipping $N"
 
 mkdir -p /app
 VALIDATE $? "Creating App directory"
