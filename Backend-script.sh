@@ -66,9 +66,11 @@ cp /home/ec2-user/Expenses-Project/backend.service /etc/systemd/system/backend.s
 VALIDATE $? "Copied backedend service"
 
 systemctl daemon-reload &>>LOGFILE
+VALIDATE $? "Reloading daemon"
 systemctl start backend &>>LOGFILE
+VALIDATE $? "Starting backend"
 systemctl enable backend &>>LOGFILE
-VALIDATE $? "Starting and Enabling backend"
+VALIDATE $? "Enabling backend"
 
 dnf install mysql -y &>>LOGFILE
 VALIDATE $? "Installing MYSQL Client"
