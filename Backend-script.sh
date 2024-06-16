@@ -65,6 +65,9 @@ VALIDATE $? "Dependencies downloading"
 cp /home/ec2-user/Expenses-Project/backend.service /etc/systemd/system/backend.service &>>LOGFILE
 VALIDATE $? "Copied backedend service"
 
+cd /etc/systemd/system
+chmod 777 backend.service
+
 systemctl daemon-reload &>>LOGFILE
 VALIDATE $? "Reloading daemon"
 systemctl unmask backend.service
