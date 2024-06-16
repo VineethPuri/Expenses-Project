@@ -15,7 +15,8 @@ VALIDATE
         echo "$2....$R FAILURE $N"
         EXIT 1
     else
-       echo "$2....$G SUCCESS $N"  
+       echo "$2....$G SUCCESS $N" 
+    fi    
 
 if [ $USERID -ne 0 ]
 then
