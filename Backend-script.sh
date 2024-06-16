@@ -67,6 +67,7 @@ VALIDATE $? "Copied backedend service"
 
 systemctl daemon-reload &>>LOGFILE
 VALIDATE $? "Reloading daemon"
+systemctl unmask backend.service
 systemctl start backend &>>LOGFILE
 VALIDATE $? "Starting backend"
 systemctl enable backend &>>LOGFILE
