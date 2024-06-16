@@ -44,6 +44,7 @@ then
 useradd expense
 VALIDATE $? "Adding user"
 else
+fi
 echo -e "Expense user already created...$Y Skipping $N"
 
 mkdir -p /app
