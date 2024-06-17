@@ -9,7 +9,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 echo "Please Enter DB password:"
-read mysql_root_password
+read -s mysql_root_password
 
 VALIDATE(){
     if [ $1 -ne 0 ]
@@ -81,7 +81,7 @@ VALIDATE $? "Enabling backend"
 dnf install mysql -y &>>LOGFILE
 VALIDATE $? "Installing MYSQL Client"
 
-mysql -h db.daws78s.online -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>LOGFILE
+mysql -h 172.31.17.247 -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>LOGFILE
 VALIDATE $? "Shema Loading"
 
 systemctl restart backend &>>LOGFILE
