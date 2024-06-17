@@ -62,6 +62,8 @@ cd /app #downloading dependencies
 npm install
 VALIDATE $? "Dependencies downloading"
 
+chmod 777 /home/ec2-user/Expenses-Project/backend.service   
+
 cp /home/ec2-user/Expenses-Project/backend.service /etc/systemd/system/backend.service &>>LOGFILE
 VALIDATE $? "Copied backedend service"
 
@@ -70,7 +72,7 @@ chmod 777 backend.service
 
 systemctl daemon-reload &>>LOGFILE
 VALIDATE $? "Reloading daemon"
-systemctl unmask backend.service
+
 systemctl start backend &>>LOGFILE
 VALIDATE $? "Starting backend"
 systemctl enable backend &>>LOGFILE
